@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Kartik Joshi — Finance professional, FP&A builder, and applied AI practitioner. Portfolio of live fintech apps, Excel models, and certifications." />
+<title>Kartik Joshi — Finance · FP&A · Applied AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0A1F44;
+    --navy-soft: #132b55;
+    --ink: #0e1116;
+    --paper: #f7f4ee;
+    --paper-2: #efeae0;
+    --accent: #c8542e;
+    --accent-2: #1f4d8a;
+    --muted: #6b6357;
+    --rule: #1f2a44;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(247, 244, 238, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(14, 17, 22, 0.08);
+  }
+  nav.top .wrap {
+    max-width: 1200px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  nav.top .logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; }
+  nav.top .logo em { font-style: italic; color: var(--accent); font-weight: 400; }
+  nav.top ul { list-style: none; display: flex; gap: 22px; font-size: 0.85rem; }
+  nav.top ul a { color: var(--ink); text-decoration: none; opacity: 0.75; transition: opacity .2s; }
+  nav.top ul a:hover { opacity: 1; }
+  @media (max-width: 720px) { nav.top ul { display: none; } }
+
+  /* HERO */
+  header.hero {
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 28px 60px;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--accent); margin-bottom: 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--accent); }
+  h1.hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.5rem, 7vw, 5.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    max-width: 11ch;
+  }
+  h1.hero-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .hero-sub {
+    margin-top: 34px;
+    max-width: 58ch;
+    font-size: 1.12rem;
+    color: #3a3530;
+    line-height: 1.6;
+  }
+  .hero-meta {
+    margin-top: 42px;
+    display: flex; gap: 28px; flex-wrap: wrap;
+    padding-top: 22px;
+    border-top: 1px solid rgba(14, 17, 22, 0.12);
+  }
+  .hero-meta .item { font-size: 0.85rem; }
+  .hero-meta .item .label { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 4px; }
+  .hero-meta .item a { color: var(--navy); text-decoration: none; border-bottom: 1px solid rgba(10, 31, 68, 0.3); padding-bottom: 1px; }
+  .hero-meta .item a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+
+  .decorative-num {
+    position: absolute; top: 80px; right: 28px;
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: clamp(5rem, 12vw, 11rem);
+    color: rgba(10, 31, 68, 0.06);
+    line-height: 1; pointer-events: none;
+    user-select: none;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 1200px; margin: 0 auto;
+    padding: 70px 28px;
+    border-top: 1px solid rgba(14, 17, 22, 0.1);
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+    align-items: baseline;
+  }
+  .section-head .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    line-height: 1.05;
+  }
+  .section-head h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-head .lede {
+    grid-column: 2;
+    max-width: 55ch;
+    color: #3a3530;
+    margin-top: 12px;
+    font-size: 1.02rem;
+  }
+  @media (max-width: 720px) {
+    .section-head { grid-template-columns: 1fr; gap: 8px; }
+    .section-head .lede { grid-column: 1; }
+  }
+
+  /* APPS GRID */
+  .apps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: rgba(14, 17, 22, 0.12);
+    border: 1px solid rgba(14, 17, 22, 0.12);
+  }
+  .app {
+    background: var(--paper);
+    padding: 28px 26px 26px;
+    display: flex; flex-direction: column;
+    min-height: 220px;
+    transition: background .25s;
+    text-decoration: none; color: inherit;
+    position: relative;
+  }
+  .app:hover { background: var(--paper-2); }
+  .app .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--accent); letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .app h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    line-height: 1.15; color: var(--navy);
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+  }
+  .app p {
+    color: #4a433c; font-size: 0.92rem;
+    flex: 1; margin-bottom: 16px;
+  }
+  .app .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+    word-break: break-all;
+    border-top: 1px dashed rgba(14, 17, 22, 0.15);
+    padding-top: 12px;
+  }
+  .app::after {
+    content: '↗'; position: absolute; top: 24px; right: 24px;
+    font-size: 1.2rem; color: var(--muted);
+    transition: transform .25s, color .25s;
+  }
+  .app:hover::after { transform: translate(3px, -3px); color: var(--accent); }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline {
+    display: flex; flex-direction: column;
+    gap: 0;
+  }
+  .job {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(14, 17, 22, 0.08);
+  }
+  .job:last-child { border-bottom: none; }
+  .job .when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--muted);
+    letter-spacing: 0.03em;
+    padding-top: 4px;
+  }
+  .job h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500; font-size: 1.15rem;
+    color: var(--navy); margin-bottom: 2px;
+  }
+  .job .company { font-size: 0.9rem; color: var(--accent); margin-bottom: 8px; }
+  .job p { font-size: 0.94rem; color: #3a3530; }
+  @media (max-width: 720px) {
+    .job { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* EXCEL GRID */
+  .excel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .xl-card {
+    background: #fff;
+    border: 1px solid rgba(14, 17, 22, 0.1);
+    padding: 24px 22px;
+    position: relative;
+    transition: border-color .25s, transform .25s;
+  }
+  .xl-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+  .xl-card .xl-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    background: var(--navy); color: var(--paper);
+    padding: 3px 8px; letter-spacing: 0.1em;
+    display: inline-block; margin-bottom: 16px;
+  }
+  .xl-card h4 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: 1.1rem; color: var(--navy);
+    margin-bottom: 10px; line-height: 1.2;
+  }
+  .xl-card p { font-size: 0.88rem; color: #4a433c; margin-bottom: 14px; }
+  .xl-card .tech {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    border-top: 1px dashed rgba(14, 17, 22, 0.15);
+    padding-top: 12px;
+  }
+  .xl-card .tech span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    background: var(--paper-2); color: var(--navy);
+    padding: 3px 7px; letter-spacing: 0.04em;
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  .edu {
+    padding: 20px;
+    border-left: 3px solid var(--accent);
+    background: rgba(10, 31, 68, 0.02);
+  }
+  .edu .when { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); margin-bottom: 6px; }
+  .edu h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; color: var(--navy); }
+
+  /* CERTS */
+  .certs {
+    columns: 2;
+    column-gap: 40px;
+  }
+  @media (max-width: 720px) { .certs { columns: 1; } }
+  .certs ul { list-style: none; }
+  .certs li {
+    break-inside: avoid;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(14, 17, 22, 0.06);
+    font-size: 0.92rem;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .certs li::before {
+    content: '✦'; color: var(--accent);
+    font-size: 0.75rem; padding-top: 4px; flex-shrink: 0;
+  }
+  .certs .issuer { color: var(--muted); font-size: 0.82rem; display: block; margin-top: 2px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: var(--paper);
+    padding: 70px 28px 40px;
+    margin-top: 40px;
+  }
+  footer .wrap { max-width: 1200px; margin: 0 auto; }
+  footer h3 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: -0.02em; line-height: 1.05;
+    max-width: 18ch; margin-bottom: 30px;
+  }
+  footer h3 em { font-style: italic; color: #f0a080; }
+  footer .contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  footer .contact .item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #9aa8c0;
+    margin-bottom: 6px; display: block;
+  }
+  footer .contact .item a, footer .contact .item span {
+    color: var(--paper); text-decoration: none;
+    font-size: 0.98rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  footer .contact .item a:hover { border-bottom-color: #f0a080; }
+  footer .baseline {
+    margin-top: 30px; font-size: 0.78rem;
+    color: #9aa8c0;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  /* Subtle reveal */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  header.hero > * { animation: rise .7s ease-out both; }
+  header.hero .eyebrow { animation-delay: .05s; }
+  header.hero h1 { animation-delay: .15s; }
+  header.hero .hero-sub { animation-delay: .3s; }
+  header.hero .hero-meta { animation-delay: .45s; }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <div class="logo">Kartik <em>Joshi</em></div>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#apps">Builds</a></li>
+      <li><a href="#excel">Excel</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="decorative-num serif">01</div>
+  <div class="eyebrow">Portfolio · Ontario, Canada · 2026</div>
+  <h1 class="hero-title">Finance that <em>builds</em>, not just reports.</h1>
+  <p class="hero-sub">
+    I'm Kartik — a finance professional with nine years across corporate banking, FP&amp;A,
+    and payments operations at Deutsche Bank and BMO. I ship live fintech tools,
+    build production-grade Excel models, and apply AI to real compliance and analytics problems.
+    This is what I've done and what I can do for you.
+  </p>
+  <div class="hero-meta">
+    <div class="item"><span class="label">Email</span><a href="mailto:kartikjoshi0999@gmail.com">kartikjoshi0999@gmail.com</a></div>
+    <div class="item"><span class="label">Phone</span><a href="tel:+16138615147">613-861-5147</a></div>
+    <div class="item"><span class="label">Location</span><span>Ontario, Canada</span></div>
+    <div class="item"><span class="label">GitHub</span><a href="https://github.com/kartikjoshi0999-ops" target="_blank" rel="noopener">kartikjoshi0999-ops</a></div>
+  </div>
+</header>
+
+<!-- EXPERIENCE -->
+<section id="work">
+  <div class="section-head">
+    <div class="num">02 — Experience</div>
+    <div>
+      <h2>Nine years across <em>banking, FP&amp;A,</em> and operations.</h2>
+      <p class="lede">A path through two global banks, retail finance in Canada, and hands-on roles that taught me how money actually moves through real systems.</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="job">
+      <div class="when">Feb 2024 — Feb 2026</div>
+      <div>
+        <h4>Personal Banker</h4>
+        <div class="company">BMO — Bank of Montreal · Canada</div>
+        <p>Owned retail client portfolios, cross-sold credit and investment products, and coached clients through complex financial decisions. Applied CIFC mutual funds licensing to position TFSA, RRSP, and RESP strategies tied to client life stage and risk profile.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">May 2024 — Jan 2025</div>
+      <div>
+        <h4>Front Desk Concierge <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">· Part-time</span></h4>
+        <div class="company">Super 8 by Wyndham — Cornwall, Ontario</div>
+        <p>Managed guest arrivals, payment reconciliation, and shift cash-outs while holding a full-time banking role — a study in prioritization and customer de-escalation under pressure.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Oct 2022 — Jul 2023</div>
+      <div>
+        <h4>Electronics &amp; Photo Centre Associate <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">· Part-time</span></h4>
+        <div class="company">OSL Retail Services · Canada</div>
+        <p>Consultative retail in a technical category — specs, financing options, warranty economics, and post-sale service recovery.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">May 2020 — Jul 2022 · Sep 2019 — Dec 2019</div>
+      <div>
+        <h4>Financial Analyst &amp; Payments Processing Analyst</h4>
+        <div class="company">Deutsche Bank — Jaipur, India</div>
+        <p>Two-year run in global banking operations: variance analysis, cash management, payment investigations, and SLA-driven processing against European client books. Learned audit-grade documentation, reconciliation discipline, and how a major bank actually functions behind the counter.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Dec 2019 — Mar 2020</div>
+      <div>
+        <h4>Accounts Payable &amp; Receivable Executive</h4>
+        <div class="company">Lenskart.com — Faridabad, Haryana</div>
+        <p>Vendor reconciliations, invoice processing, and AR aging clean-up for a fast-growing e-commerce operation.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Jul 2018 — Sep 2018</div>
+      <div>
+        <h4>Finance Intern</h4>
+        <div class="company">NBC Bearings</div>
+        <p>SAP-based ERP exposure across accounting, budgeting, and billing workflows — my first real experience with finance at enterprise scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps">
+  <div class="section-head">
+    <div class="num">03 — Live builds</div>
+    <div>
+      <h2>Seven fintech apps, <em>shipped.</em></h2>
+      <p class="lede">React + Vite applications deployed to Vercel, each mapped to a real competency on my resume — credit, FP&amp;A, AML, markets, and portfolio analytics.</p>
+    </div>
+  </div>
+
+  <div class="apps">
+    <a class="app" href="https://credit-risk-analyzer-my8q.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">Credit Analysis</span>
+      <h3>Credit Risk Analyzer</h3>
+      <p>PD, LGD, and exposure scoring against borrower inputs. Tests the credit analyst's core decision-making loop.</p>
+      <div class="url">credit-risk-analyzer-my8q.vercel.app</div>
+    </a>
+
+    <a class="app" href="https://fpa-budget-simulator.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">FP&amp;A</span>
+      <h3>FP&amp;A Budget Simulator</h3>
+      <p>Driver-based budget modelling with live variance and scenario stacking — exactly the work a corporate FP&amp;A analyst does monthly.</p>
+      <div class="url">fpa-budget-simulator.vercel.app</div>
+    </a>
+
+    <a class="app" href="https://aml-transaction-monitor.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">Compliance · AML</span>
+      <h3>AML Transaction Monitor</h3>
+      <p>Rule-based transaction screening, watchlist flags, and SAR-style case output. Built to the workflow of a real AML investigative analyst.</p>
+      <div class="url">aml-transaction-monitor.vercel.app</div>
+    </a>
+
+    <a class="app" href="https://portfolio-rebalancer-beta.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">Wealth &amp; Markets</span>
+      <h3>Portfolio Rebalancer</h3>
+      <p>Target-vs-actual allocation analysis with trade suggestions. Useful for advisors, PMs, and self-directed TFSA investors.</p>
+      <div class="url">portfolio-rebalancer-beta.vercel.app</div>
+    </a>
+
+    <a class="app" href="https://finpulse-eight.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">Markets</span>
+      <h3>FinPulse Terminal</h3>
+      <p>Lightweight markets terminal — tickers, fundamentals, and a focused information-density layout inspired by professional tools.</p>
+      <div class="url">finpulse-eight.vercel.app</div>
+    </a>
+
+    <a class="app" href="https://meeting-transcriber-iota.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">Applied AI</span>
+      <h3>Meeting Transcriber</h3>
+      <p>AI transcription with summarization and action-item extraction. Uses the same retrieval and agentic patterns from my IBM RAG certificate.</p>
+      <div class="url">meeting-transcriber-iota.vercel.app</div>
+    </a>
+
+    <a class="app" href="https://meeting-transcriber-8.preview.emergentagent.com/" target="_blank" rel="noopener">
+      <span class="tag">Applied AI · Alt Build</span>
+      <h3>Transcriber — Agent Edition</h3>
+      <p>Alternate deployment with an agent-style UX. Same retrieval backbone, different front.</p>
+      <div class="url">meeting-transcriber-8.preview.emergentagent.com</div>
+    </a>
+  </div>
+</section>
+
+<!-- EXCEL -->
+<section id="excel">
+  <div class="section-head">
+    <div class="num">04 — Excel work</div>
+    <div>
+      <h2>Five workbooks, <em>two thousand</em> live formulas.</h2>
+      <p class="lede">These aren't templates — each is a working finance tool with VLOOKUP, HLOOKUP, INDEX/MATCH, array formulas, conditional logic, and VBA macros. Two are macro-heavy (loan amortization, AML monitor). Three are formula-heavy with optional VBA (3-statement model, FP&amp;A simulator, portfolio rebalancer).</p>
+    </div>
+  </div>
+
+  <div class="excel">
+    <div class="xl-card">
+      <span class="xl-num">WB · 01</span>
+      <h4>Loan Amortization &amp; Credit Risk Dashboard</h4>
+      <p>1,400+ formulas. 360-month amortization, VLOOKUP rate grid by credit score, HLOOKUP by term, INDEX/MATCH two-way risk tier lookup, DTI/LTV ratios, and a live KPI dashboard. Macro-heavy: <span class="mono" style="color:var(--accent)">AutoRefresh</span>, <span class="mono" style="color:var(--accent)">RunRateStressTest</span>, <span class="mono" style="color:var(--accent)">GenerateExecSummary</span>.</p>
+      <div class="tech">
+        <span>VLOOKUP</span><span>HLOOKUP</span><span>INDEX/MATCH</span><span>VBA</span><span>Data Validation</span><span>Conditional Formatting</span>
+      </div>
+    </div>
+
+    <div class="xl-card">
+      <span class="xl-num">WB · 02</span>
+      <h4>Three-Statement Financial Model</h4>
+      <p>Integrated Income Statement, Balance Sheet, and Cash Flow with driver-based assumptions. Scenario switch (Base/Bull/Bear) via CHOOSE, debt schedule, and live ratios. Formula-heavy; light VBA for scenario toggle.</p>
+      <div class="tech">
+        <span>CHOOSE</span><span>IF Logic</span><span>Linked Statements</span><span>Scenarios</span><span>Ratios</span>
+      </div>
+    </div>
+
+    <div class="xl-card">
+      <span class="xl-num">WB · 03</span>
+      <h4>AML Transaction Monitoring Workbook</h4>
+      <p>800+ formulas. Rule-based flagging for structuring, high-risk geography, round-dollar, and velocity. Sanctions list VLOOKUP, risk scoring with SUMPRODUCT, case queue dashboard. Macro-heavy: <span class="mono" style="color:var(--accent)">RescanTransactions</span>, <span class="mono" style="color:var(--accent)">ExportSARCases</span>, <span class="mono" style="color:var(--accent)">RefreshRiskHeatmap</span>.</p>
+      <div class="tech">
+        <span>SUMPRODUCT</span><span>VLOOKUP</span><span>Array Formulas</span><span>VBA</span><span>Pivot-style rollups</span>
+      </div>
+    </div>
+
+    <div class="xl-card">
+      <span class="xl-num">WB · 04</span>
+      <h4>FP&amp;A Budget Simulator with Monte Carlo</h4>
+      <p>Department-level budget vs actual with variance logic, driver simulation, and a Monte Carlo revenue model using <span class="mono">NORM.INV</span> + <span class="mono">RAND</span> across 500 trials. Formula-heavy; VBA runs the simulation loop.</p>
+      <div class="tech">
+        <span>NORM.INV</span><span>SUMIFS</span><span>Variance Analysis</span><span>Monte Carlo VBA</span>
+      </div>
+    </div>
+
+    <div class="xl-card">
+      <span class="xl-num">WB · 05</span>
+      <h4>Portfolio Rebalancer</h4>
+      <p>Target-vs-actual allocation with trade suggestions, drift alerts, and tax-lot-aware rebalance logic. Formula-heavy with a VBA one-click rebalance. Designed around a Wealthsimple-style TFSA workflow.</p>
+      <div class="tech">
+        <span>INDEX/MATCH</span><span>IF/AND Logic</span><span>Named Ranges</span><span>VBA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-head">
+    <div class="num">05 — Education</div>
+    <div>
+      <h2>MBA, BBA, and two graduate certificates.</h2>
+    </div>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu">
+      <div class="when">May 2023 — Dec 2023</div>
+      <h4>Graduate Certificate · Project Management</h4>
+    </div>
+    <div class="edu">
+      <div class="when">Sep 2022 — May 2023</div>
+      <h4>Graduate Certificate · Supply Chain Management</h4>
+    </div>
+    <div class="edu">
+      <div class="when">May 2017 — Jun 2019</div>
+      <h4>MBA · Finance &amp; Marketing <span style="font-weight:400;font-size:0.82rem;color:var(--muted);">(WES-evaluated to Canadian Master's equivalent)</span></h4>
+    </div>
+    <div class="edu">
+      <div class="when">May 2014 — Jun 2017</div>
+      <h4>BBA · Finance &amp; Marketing</h4>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="section-head">
+    <div class="num">06 — Certifications</div>
+    <div>
+      <h2>Twenty-plus credentials across <em>finance, AI,</em> and the soft skills.</h2>
+      <p class="lede">From the CFI triple stack (FMVA, CBCA, FPAP) to the IBM RAG &amp; Agentic AI certificate — continuous learning is not a line item for me.</p>
+    </div>
+  </div>
+
+  <div class="certs">
+    <ul>
+      <li><div><strong>FMVA®</strong> — Financial Modeling &amp; Valuation Analyst<span class="issuer">Corporate Finance Institute</span></div></li>
+      <li><div><strong>CBCA®</strong> — Commercial Banking &amp; Credit Analyst<span class="issuer">Corporate Finance Institute</span></div></li>
+      <li><div><strong>FPAP™</strong> — Financial Planning &amp; Analysis Professional<span class="issuer">Corporate Finance Institute</span></div></li>
+      <li><div><strong>CIFC</strong> — Canadian Investment Funds Course (Mutual Funds)<span class="issuer">IFSE Institute</span></div></li>
+      <li><div><strong>IBM RAG &amp; Agentic AI Professional Certificate</strong><span class="issuer">IBM</span></div></li>
+      <li><div><strong>Google AI Essentials Specialization</strong><span class="issuer">Google</span></div></li>
+      <li><div><strong>Use AI Responsibly</strong><span class="issuer">Google</span></div></li>
+      <li><div><strong>Fundamentals of Finance</strong><span class="issuer">University of Pennsylvania</span></div></li>
+      <li><div><strong>Personal Finance Essentials</strong><span class="issuer">McGill University · Desautels</span></div></li>
+      <li><div><strong>Introduction to Capital Markets</strong><span class="issuer">Corporate Finance Institute</span></div></li>
+      <li><div><strong>Introduction to Financial Modeling</strong><span class="issuer">Udemy</span></div></li>
+      <li><div><strong>Microsoft Copilot: The Art of Prompt Writing</strong><span class="issuer">LinkedIn Learning</span></div></li>
+      <li><div><strong>CX Foundations</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Customer Service: Managing Customer Feedback</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Emotional Intelligence for Project Managers</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Developing Your Emotional Intelligence</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Agile Foundations</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Artificial Intelligence for Cybersecurity</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>How to Boost Your Productivity with AI Tools</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Build Successful Career in Project Management</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Building Rapport with Customers</strong><span class="issuer">NASBA</span></div></li>
+      <li><div><strong>Public Speaking Foundations</strong><span class="issuer">NASBA</span></div></li>
+      <li><div><strong>Sensex SREST</strong> (Mock Sensex)<span class="issuer"></span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#f0a080;">Let's talk</div>
+    <h3 class="serif">Looking to hire a finance analyst who <em>actually builds</em>?</h3>
+
+    <div class="contact">
+      <div class="item">
+        <span class="label">Email</span>
+        <a href="mailto:kartikjoshi0999@gmail.com">kartikjoshi0999@gmail.com</a>
+      </div>
+      <div class="item">
+        <span class="label">Phone</span>
+        <a href="tel:+16138615147">613-861-5147</a>
+      </div>
+      <div class="item">
+        <span class="label">GitHub</span>
+        <a href="https://github.com/kartikjoshi0999-ops" target="_blank" rel="noopener">kartikjoshi0999-ops</a>
+      </div>
+      <div class="item">
+        <span class="label">Etsy</span>
+        <span>FreelancerToolsHub</span>
+      </div>
+    </div>
+
+    <div class="baseline">
+      <span>© 2026 Kartik Joshi · Ontario, Canada</span>
+      <span class="mono" style="color:#f0a080;">Portfolio v3.0 · Last updated Apr 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
