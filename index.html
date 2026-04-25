@@ -145,49 +145,72 @@
   /* APPS GRID */
   .apps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1px;
     background: rgba(14, 17, 22, 0.12);
     border: 1px solid rgba(14, 17, 22, 0.12);
   }
   .app {
     background: var(--paper);
-    padding: 28px 26px 26px;
+    padding: 20px;
     display: flex; flex-direction: column;
-    min-height: 220px;
+    min-height: 380px;
     transition: background .25s;
     text-decoration: none; color: inherit;
     position: relative;
   }
   .app:hover { background: var(--paper-2); }
+  
+  /* SCREENSHOT PLACEHOLDER */
+  .screenshot {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, var(--paper-2) 0%, rgba(10, 31, 68, 0.06) 100%);
+    border: 1px solid rgba(14, 17, 22, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .screenshot::before {
+    content: '📸';
+    font-size: 1.8rem;
+    display: block;
+  }
+  
   .app .tag {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
     color: var(--accent); letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
   .app h3 {
     font-family: 'Fraunces', serif;
     font-weight: 500;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     line-height: 1.15; color: var(--navy);
     letter-spacing: -0.015em;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   .app p {
-    color: #4a433c; font-size: 0.92rem;
-    flex: 1; margin-bottom: 16px;
+    color: #4a433c; font-size: 0.9rem;
+    flex: 1; margin-bottom: 12px;
+    line-height: 1.5;
   }
   .app .url {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--muted);
+    font-size: 0.7rem; color: var(--muted);
     word-break: break-all;
-    border-top: 1px dashed rgba(14, 17, 22, 0.15);
-    padding-top: 12px;
   }
   .app::after {
-    content: '↗'; position: absolute; top: 24px; right: 24px;
+    content: '↗'; position: absolute; top: 18px; right: 18px;
     font-size: 1.2rem; color: var(--muted);
     transition: transform .25s, color .25s;
   }
@@ -226,34 +249,80 @@
   /* EXCEL GRID */
   .excel {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
   }
   .xl-card {
     background: #fff;
     border: 1px solid rgba(14, 17, 22, 0.1);
-    padding: 24px 22px;
+    padding: 20px;
     position: relative;
     transition: border-color .25s, transform .25s;
   }
   .xl-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+  
+  .xl-screenshot {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, var(--paper-2) 0%, rgba(10, 31, 68, 0.06) 100%);
+    border: 1px solid rgba(14, 17, 22, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .xl-screenshot::before {
+    content: '📊';
+    font-size: 1.8rem;
+    margin-right: 6px;
+  }
+  
   .xl-card .xl-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
     background: var(--navy); color: var(--paper);
     padding: 3px 8px; letter-spacing: 0.1em;
-    display: inline-block; margin-bottom: 16px;
+    display: inline-block; margin-bottom: 12px;
   }
   .xl-card h4 {
     font-family: 'Fraunces', serif; font-weight: 500;
-    font-size: 1.1rem; color: var(--navy);
+    font-size: 1.05rem; color: var(--navy);
     margin-bottom: 10px; line-height: 1.2;
   }
-  .xl-card p { font-size: 0.88rem; color: #4a433c; margin-bottom: 14px; }
+  .xl-card p { font-size: 0.88rem; color: #4a433c; margin-bottom: 12px; line-height: 1.5; }
+  
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--navy);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s;
+    font-family: 'Inter Tight', sans-serif;
+  }
+  .download-btn:hover {
+    background: var(--navy-soft);
+  }
+  .download-btn::before {
+    content: '⬇';
+    font-size: 0.85rem;
+  }
+  
   .xl-card .tech {
     display: flex; flex-wrap: wrap; gap: 6px;
     border-top: 1px dashed rgba(14, 17, 22, 0.15);
     padding-top: 12px;
+    margin-top: 12px;
   }
   .xl-card .tech span {
     font-family: 'JetBrains Mono', monospace;
@@ -414,15 +483,6 @@
     </div>
 
     <div class="job">
-      <div class="when">Oct 2022 — Jul 2023</div>
-      <div>
-        <h4>Electronics &amp; Photo Centre Associate <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">· Part-time</span></h4>
-        <div class="company">OSL Retail Services · Canada</div>
-        <p>Consultative retail in a technical category — specs, financing options, warranty economics, and post-sale service recovery.</p>
-      </div>
-    </div>
-
-    <div class="job">
       <div class="when">May 2020 — Jul 2022 · Sep 2019 — Dec 2019</div>
       <div>
         <h4>Financial Analyst &amp; Payments Processing Analyst</h4>
@@ -457,12 +517,13 @@
     <div class="num">03 — Live builds</div>
     <div>
       <h2>Seven fintech apps, <em>shipped.</em></h2>
-      <p class="lede">React + Vite applications deployed to Vercel, each mapped to a real competency on my resume — credit, FP&amp;A, AML, markets, and portfolio analytics.</p>
+      <p class="lede">React + Vite applications deployed to Vercel, each mapped to a real competency on my resume — credit, FP&amp;A, AML, markets, and portfolio analytics. Click any card to open the live app.</p>
     </div>
   </div>
 
   <div class="apps">
     <a class="app" href="https://credit-risk-analyzer-my8q.vercel.app" target="_blank" rel="noopener">
+      <div class="screenshot">Live App</div>
       <span class="tag">Credit Analysis</span>
       <h3>Credit Risk Analyzer</h3>
       <p>PD, LGD, and exposure scoring against borrower inputs. Tests the credit analyst's core decision-making loop.</p>
@@ -470,13 +531,15 @@
     </a>
 
     <a class="app" href="https://fpa-budget-simulator.vercel.app" target="_blank" rel="noopener">
-      <span class="tag">FP&amp;A</span>
-      <h3>FP&amp;A Budget Simulator</h3>
-      <p>Driver-based budget modelling with live variance and scenario stacking — exactly the work a corporate FP&amp;A analyst does monthly.</p>
+      <div class="screenshot">Live App</div>
+      <span class="tag">FP&A</span>
+      <h3>FP&A Budget Simulator</h3>
+      <p>Driver-based budget modelling with live variance and scenario stacking — exactly the work a corporate FP&A analyst does monthly.</p>
       <div class="url">fpa-budget-simulator.vercel.app</div>
     </a>
 
     <a class="app" href="https://aml-transaction-monitor.vercel.app" target="_blank" rel="noopener">
+      <div class="screenshot">Live App</div>
       <span class="tag">Compliance · AML</span>
       <h3>AML Transaction Monitor</h3>
       <p>Rule-based transaction screening, watchlist flags, and SAR-style case output. Built to the workflow of a real AML investigative analyst.</p>
@@ -484,13 +547,15 @@
     </a>
 
     <a class="app" href="https://portfolio-rebalancer-beta.vercel.app" target="_blank" rel="noopener">
-      <span class="tag">Wealth &amp; Markets</span>
+      <div class="screenshot">Live App</div>
+      <span class="tag">Wealth & Markets</span>
       <h3>Portfolio Rebalancer</h3>
       <p>Target-vs-actual allocation analysis with trade suggestions. Useful for advisors, PMs, and self-directed TFSA investors.</p>
       <div class="url">portfolio-rebalancer-beta.vercel.app</div>
     </a>
 
     <a class="app" href="https://finpulse-eight.vercel.app" target="_blank" rel="noopener">
+      <div class="screenshot">Live App</div>
       <span class="tag">Markets</span>
       <h3>FinPulse Terminal</h3>
       <p>Lightweight markets terminal — tickers, fundamentals, and a focused information-density layout inspired by professional tools.</p>
@@ -498,6 +563,7 @@
     </a>
 
     <a class="app" href="https://meeting-transcriber-iota.vercel.app" target="_blank" rel="noopener">
+      <div class="screenshot">Live App</div>
       <span class="tag">Applied AI</span>
       <h3>Meeting Transcriber</h3>
       <p>AI transcription with summarization and action-item extraction. Uses the same retrieval and agentic patterns from my IBM RAG certificate.</p>
@@ -505,6 +571,7 @@
     </a>
 
     <a class="app" href="https://meeting-transcriber-8.preview.emergentagent.com/" target="_blank" rel="noopener">
+      <div class="screenshot">Live App</div>
       <span class="tag">Applied AI · Alt Build</span>
       <h3>Transcriber — Agent Edition</h3>
       <p>Alternate deployment with an agent-style UX. Same retrieval backbone, different front.</p>
@@ -518,54 +585,64 @@
   <div class="section-head">
     <div class="num">04 — Excel work</div>
     <div>
-      <h2>Five workbooks, <em>two thousand</em> live formulas.</h2>
-      <p class="lede">These aren't templates — each is a working finance tool with VLOOKUP, HLOOKUP, INDEX/MATCH, array formulas, conditional logic, and VBA macros. Two are macro-heavy (loan amortization, AML monitor). Three are formula-heavy with optional VBA (3-statement model, FP&amp;A simulator, portfolio rebalancer).</p>
+      <h2>Five workbooks, <em>2,600 formulas</em> and downloadable.</h2>
+      <p class="lede">Production-grade models with VLOOKUP, HLOOKUP, INDEX/MATCH, array formulas, conditional logic, and data validation. Download any workbook directly and inspect the live formulas and calculations.</p>
     </div>
   </div>
 
   <div class="excel">
     <div class="xl-card">
+      <div class="xl-screenshot">Dashboard</div>
       <span class="xl-num">WB · 01</span>
-      <h4>Loan Amortization &amp; Credit Risk Dashboard</h4>
-      <p>1,400+ formulas. 360-month amortization, VLOOKUP rate grid by credit score, HLOOKUP by term, INDEX/MATCH two-way risk tier lookup, DTI/LTV ratios, and a live KPI dashboard. Macro-heavy: <span class="mono" style="color:var(--accent)">AutoRefresh</span>, <span class="mono" style="color:var(--accent)">RunRateStressTest</span>, <span class="mono" style="color:var(--accent)">GenerateExecSummary</span>.</p>
+      <h4>Loan Amortization &amp; Credit Risk</h4>
+      <p>1,400+ formulas. 360-month amortization schedule with VLOOKUP rate grid by score, HLOOKUP by term, INDEX/MATCH risk tier lookup, live KPI dashboard.</p>
+      <a href="https://raw.githubusercontent.com/kartikjoshi0999-ops/LinkedIn-portfolio/main/01_Loan_Amortization_Credit_Risk.xlsx" download="01_Loan_Amortization_Credit_Risk.xlsx" class="download-btn">Download</a>
       <div class="tech">
-        <span>VLOOKUP</span><span>HLOOKUP</span><span>INDEX/MATCH</span><span>VBA</span><span>Data Validation</span><span>Conditional Formatting</span>
+        <span>VLOOKUP</span><span>HLOOKUP</span><span>INDEX/MATCH</span><span>Amortization</span>
       </div>
     </div>
 
     <div class="xl-card">
+      <div class="xl-screenshot">Model</div>
       <span class="xl-num">WB · 02</span>
-      <h4>Three-Statement Financial Model</h4>
-      <p>Integrated Income Statement, Balance Sheet, and Cash Flow with driver-based assumptions. Scenario switch (Base/Bull/Bear) via CHOOSE, debt schedule, and live ratios. Formula-heavy; light VBA for scenario toggle.</p>
+      <h4>Three-Statement Model</h4>
+      <p>Integrated Income Statement, Balance Sheet, Cash Flow with driver-based assumptions. Scenario switch (Base/Bull/Bear) via CHOOSE, debt schedule, live ratio analysis.</p>
+      <a href="https://raw.githubusercontent.com/kartikjoshi0999-ops/LinkedIn-portfolio/main/02_Three_Statement_Model.xlsx" download="02_Three_Statement_Model.xlsx" class="download-btn">Download</a>
       <div class="tech">
-        <span>CHOOSE</span><span>IF Logic</span><span>Linked Statements</span><span>Scenarios</span><span>Ratios</span>
+        <span>CHOOSE</span><span>Linked Statements</span><span>Scenarios</span><span>Ratios</span>
       </div>
     </div>
 
     <div class="xl-card">
+      <div class="xl-screenshot">Monitor</div>
       <span class="xl-num">WB · 03</span>
-      <h4>AML Transaction Monitoring Workbook</h4>
-      <p>800+ formulas. Rule-based flagging for structuring, high-risk geography, round-dollar, and velocity. Sanctions list VLOOKUP, risk scoring with SUMPRODUCT, case queue dashboard. Macro-heavy: <span class="mono" style="color:var(--accent)">RescanTransactions</span>, <span class="mono" style="color:var(--accent)">ExportSARCases</span>, <span class="mono" style="color:var(--accent)">RefreshRiskHeatmap</span>.</p>
+      <h4>AML Transaction Monitoring</h4>
+      <p>800+ formulas. Rule-based flagging for structuring, high-risk geography, round-dollar, velocity. Sanctions VLOOKUP, risk scoring with SUMPRODUCT, case queue dashboard.</p>
+      <a href="https://raw.githubusercontent.com/kartikjoshi0999-ops/LinkedIn-portfolio/main/03_AML_Transaction_Monitor.xlsx" download="03_AML_Transaction_Monitor.xlsx" class="download-btn">Download</a>
       <div class="tech">
-        <span>SUMPRODUCT</span><span>VLOOKUP</span><span>Array Formulas</span><span>VBA</span><span>Pivot-style rollups</span>
+        <span>SUMPRODUCT</span><span>VLOOKUP</span><span>Array Formulas</span><span>Risk Scoring</span>
       </div>
     </div>
 
     <div class="xl-card">
+      <div class="xl-screenshot">Simulation</div>
       <span class="xl-num">WB · 04</span>
-      <h4>FP&amp;A Budget Simulator with Monte Carlo</h4>
-      <p>Department-level budget vs actual with variance logic, driver simulation, and a Monte Carlo revenue model using <span class="mono">NORM.INV</span> + <span class="mono">RAND</span> across 500 trials. Formula-heavy; VBA runs the simulation loop.</p>
+      <h4>FP&A Budget Simulator</h4>
+      <p>Department-level budget vs actual with variance logic, driver simulation, Monte Carlo revenue model using NORM.INV across 500 trials.</p>
+      <a href="https://raw.githubusercontent.com/kartikjoshi0999-ops/LinkedIn-portfolio/main/04_FPA_Budget_Simulator.xlsx" download="04_FPA_Budget_Simulator.xlsx" class="download-btn">Download</a>
       <div class="tech">
-        <span>NORM.INV</span><span>SUMIFS</span><span>Variance Analysis</span><span>Monte Carlo VBA</span>
+        <span>NORM.INV</span><span>SUMIFS</span><span>Variance Analysis</span><span>Monte Carlo</span>
       </div>
     </div>
 
     <div class="xl-card">
+      <div class="xl-screenshot">Rebalance</div>
       <span class="xl-num">WB · 05</span>
       <h4>Portfolio Rebalancer</h4>
-      <p>Target-vs-actual allocation with trade suggestions, drift alerts, and tax-lot-aware rebalance logic. Formula-heavy with a VBA one-click rebalance. Designed around a Wealthsimple-style TFSA workflow.</p>
+      <p>Target-vs-actual allocation with trade suggestions, drift alerts, and tax-lot-aware rebalance logic. Designed around a Wealthsimple TFSA workflow.</p>
+      <a href="https://raw.githubusercontent.com/kartikjoshi0999-ops/LinkedIn-portfolio/main/05_Portfolio_Rebalancer.xlsx" download="05_Portfolio_Rebalancer.xlsx" class="download-btn">Download</a>
       <div class="tech">
-        <span>INDEX/MATCH</span><span>IF/AND Logic</span><span>Named Ranges</span><span>VBA</span>
+        <span>INDEX/MATCH</span><span>IF/AND Logic</span><span>Named Ranges</span>
       </div>
     </div>
   </div>
@@ -591,7 +668,7 @@
     </div>
     <div class="edu">
       <div class="when">May 2017 — Jun 2019</div>
-      <h4>MBA · Finance &amp; Marketing <span style="font-weight:400;font-size:0.82rem;color:var(--muted);">(WES-evaluated to Canadian Master's equivalent)</span></h4>
+      <h4>MBA · Finance &amp; Marketing <span style="font-weight:400;font-size:0.82rem;color:var(--muted);">(WES-evaluated)</span></h4>
     </div>
     <div class="edu">
       <div class="when">May 2014 — Jun 2017</div>
@@ -605,8 +682,8 @@
   <div class="section-head">
     <div class="num">06 — Certifications</div>
     <div>
-      <h2>Twenty-plus credentials across <em>finance, AI,</em> and the soft skills.</h2>
-      <p class="lede">From the CFI triple stack (FMVA, CBCA, FPAP) to the IBM RAG &amp; Agentic AI certificate — continuous learning is not a line item for me.</p>
+      <h2>Twenty-plus credentials across <em>finance, AI,</em> and soft skills.</h2>
+      <p class="lede">From the CFI triple stack (FMVA, CBCA, FPAP) to IBM RAG &amp; Agentic AI — continuous learning is not a line item for me.</p>
     </div>
   </div>
 
@@ -615,17 +692,17 @@
       <li><div><strong>FMVA®</strong> — Financial Modeling &amp; Valuation Analyst<span class="issuer">Corporate Finance Institute</span></div></li>
       <li><div><strong>CBCA®</strong> — Commercial Banking &amp; Credit Analyst<span class="issuer">Corporate Finance Institute</span></div></li>
       <li><div><strong>FPAP™</strong> — Financial Planning &amp; Analysis Professional<span class="issuer">Corporate Finance Institute</span></div></li>
-      <li><div><strong>CIFC</strong> — Canadian Investment Funds Course (Mutual Funds)<span class="issuer">IFSE Institute</span></div></li>
-      <li><div><strong>IBM RAG &amp; Agentic AI Professional Certificate</strong><span class="issuer">IBM</span></div></li>
+      <li><div><strong>CIFC</strong> — Canadian Investment Funds Course<span class="issuer">IFSE Institute</span></div></li>
+      <li><div><strong>IBM RAG &amp; Agentic AI Professional</strong><span class="issuer">IBM</span></div></li>
       <li><div><strong>Google AI Essentials Specialization</strong><span class="issuer">Google</span></div></li>
       <li><div><strong>Use AI Responsibly</strong><span class="issuer">Google</span></div></li>
       <li><div><strong>Fundamentals of Finance</strong><span class="issuer">University of Pennsylvania</span></div></li>
-      <li><div><strong>Personal Finance Essentials</strong><span class="issuer">McGill University · Desautels</span></div></li>
-      <li><div><strong>Introduction to Capital Markets</strong><span class="issuer">Corporate Finance Institute</span></div></li>
+      <li><div><strong>Personal Finance Essentials</strong><span class="issuer">McGill University</span></div></li>
+      <li><div><strong>Introduction to Capital Markets</strong><span class="issuer">CFI</span></div></li>
       <li><div><strong>Introduction to Financial Modeling</strong><span class="issuer">Udemy</span></div></li>
       <li><div><strong>Microsoft Copilot: The Art of Prompt Writing</strong><span class="issuer">LinkedIn Learning</span></div></li>
       <li><div><strong>CX Foundations</strong><span class="issuer">PMI</span></div></li>
-      <li><div><strong>Customer Service: Managing Customer Feedback</strong><span class="issuer">PMI</span></div></li>
+      <li><div><strong>Customer Service: Managing Feedback</strong><span class="issuer">PMI</span></div></li>
       <li><div><strong>Emotional Intelligence for Project Managers</strong><span class="issuer">PMI</span></div></li>
       <li><div><strong>Developing Your Emotional Intelligence</strong><span class="issuer">PMI</span></div></li>
       <li><div><strong>Agile Foundations</strong><span class="issuer">PMI</span></div></li>
@@ -634,7 +711,7 @@
       <li><div><strong>Build Successful Career in Project Management</strong><span class="issuer">PMI</span></div></li>
       <li><div><strong>Building Rapport with Customers</strong><span class="issuer">NASBA</span></div></li>
       <li><div><strong>Public Speaking Foundations</strong><span class="issuer">NASBA</span></div></li>
-      <li><div><strong>Sensex SREST</strong> (Mock Sensex)<span class="issuer"></span></div></li>
+      <li><div><strong>Sensex SREST</strong> — Mock Sensex<span class="issuer"></span></div></li>
     </ul>
   </div>
 </section>
@@ -659,14 +736,14 @@
         <a href="https://github.com/kartikjoshi0999-ops" target="_blank" rel="noopener">kartikjoshi0999-ops</a>
       </div>
       <div class="item">
-        <span class="label">Etsy</span>
-        <span>FreelancerToolsHub</span>
+        <span class="label">LinkedIn</span>
+        <span>Kartik Joshi</span>
       </div>
     </div>
 
     <div class="baseline">
       <span>© 2026 Kartik Joshi · Ontario, Canada</span>
-      <span class="mono" style="color:#f0a080;">Portfolio v3.0 · Last updated Apr 2026</span>
+      <span class="mono" style="color:#f0a080;">Portfolio v4.0 · Last updated Apr 2026</span>
     </div>
   </div>
 </footer>
